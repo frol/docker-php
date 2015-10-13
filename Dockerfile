@@ -9,10 +9,9 @@ USER root
 RUN apk --update add php-fpm php-mysql php-zlib php-curl \
  && chown -R nginx:nogroup /var/log/ \
  && chmod +x /entrypoint.sh \
- && sed -i "s/^\}$/    include \/etc\/nginx\/sites\-enabled\/php\.conf;\n\}/" /etc/nginx/sites-enabled/localhost \
  && rm -rf /var/cache/apk/*
 
-COPY ./php.conf /etc/nginx/sites-enabled/php.conf
+COPY ./php.conf /var/www/localhost.d/php.conf
 
 VOLUME /var/log
 
