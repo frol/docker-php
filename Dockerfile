@@ -3,8 +3,6 @@ MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 
 COPY ./entrypoint.sh /
 
-ENV WORDPRESS_VERSION latest
-
 USER root
 RUN apk --update add php-fpm php-mysql php-zlib php-curl \
  && chown -R nginx:nogroup /var/log/ \
