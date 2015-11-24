@@ -4,7 +4,7 @@ MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 COPY ./entrypoint.sh /
 
 USER root
-RUN apk --update add php-fpm php-mysql php-zlib php-curl \
+RUN apk --update add php-fpm php-mysql php-zlib php-curl php-xmlrpc php-ctype \
  && chown -R nginx:nogroup /var/log/ \
  && sed -i "s/^\}$/    include \/var\/www\/php\.conf;\n\}/" /etc/nginx/sites-enabled/localhost \
  && chmod +x /entrypoint.sh \
