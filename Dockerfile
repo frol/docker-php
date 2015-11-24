@@ -4,7 +4,7 @@ MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 COPY ./entrypoint.sh /
 
 USER root
-RUN apk --update add php-fpm php-mysql php-zlib php-curl php-xmlrpc php-ctype \
+RUN apk --update add php-fpm php-mysql php-zlib php-curl php-xmlrpc php-ctype php-json \
  && chown -R nginx:nogroup /var/log/ \
  && sed -i "s/^\}$/    include \/var\/www\/php\.conf;\n\}/" /etc/nginx/sites-enabled/localhost \
  && server_port_configuration='fastcgi_param  SERVER_PORT        $server_port;' \
